@@ -3,5 +3,5 @@
   <p>{{colleague.pseudo}}</p>
   <p>{{colleague.score}}</p>
 
-<tc-like-hate (evtLikeHate)="modifierScore($event)"></tc-like-hate>
+<tc-like-hate (evtLikeHate)="modifierScore($event)" [like]="likeDisabled" [hate]="hateDisabled"></tc-like-hate>
 </div>
