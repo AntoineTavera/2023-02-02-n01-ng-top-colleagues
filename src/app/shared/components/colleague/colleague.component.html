@@ -1,6 +1,6 @@
 <div class="card p-1">
   <img [src]="colleague.photo" alt="kk">
-  <p>{{colleague.pseudo}}</p>
+  <p>{{colleague.pseudo | uppercase}}</p>
   <p>{{colleague.score}}</p>
 
 <tc-like-hate (evtLikeHate)="modifierScore($event)" [like]="likeDisabled" [hate]="hateDisabled"></tc-like-hate>
