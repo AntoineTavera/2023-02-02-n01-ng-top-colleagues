@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Colleague} from "../../../models/colleague";
+import {ColleagueService} from "../../../providers/colleague.service";
 
 @Component({
   selector: 'tc-colleague-list',
@@ -7,5 +8,9 @@ import {Colleague} from "../../../models/colleague";
   styleUrls: ['./colleague-list.component.scss']
 })
 export class ColleagueListComponent {
-  @Input() listColleagues: Colleague[] = [];
+  listColleagues: Colleague[] = [];
+
+constructor(private colleagueSRV: ColleagueService) {
+  this.listColleagues = colleagueSRV.getListCollegues()
+}
 }
