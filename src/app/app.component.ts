@@ -8,22 +8,22 @@ import {Colleague} from "./models/colleague";
 })
 export class AppComponent {
   title = 'top-colleagues';
-
-  colleague1: Colleague = {
+listColleagues:Colleague [] = [
+  {
     pseudo: "Naufragé",
     score: 100,
     photo: "http://randomuser.me/api/portraits/men/81.jpg"
-  }
+  },
 
-  colleague2: Colleague = {
+ {
     pseudo: "Galerien",
     score: 100,
     photo: "http://randomuser.me/api/portraits/men/83.jpg"
-  }
+  },
 
-  colleague3: Colleague = {
+{
     pseudo: "Rescapé",
     score: 100,
     photo: "http://randomuser.me/api/portraits/men/89.jpg"
-  }
+  } ]
 }
