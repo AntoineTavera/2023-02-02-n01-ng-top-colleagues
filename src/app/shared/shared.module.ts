@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LikeHateComponent } from './components/like-hate/like-hate.component';
 import { ColleagueComponent } from './components/colleague/colleague.component';
 import { ColleagueListComponent } from '../shared/components/colleague-list/colleague-list.component';
+import { CounterComponent } from '../shared/components/counter/counter.component';
 
 
 
@@ -10,7 +11,8 @@ import { ColleagueListComponent } from '../shared/components/colleague-list/coll
   declarations: [
     LikeHateComponent,
     ColleagueComponent,
-    ColleagueListComponent
+    ColleagueListComponent,
+    CounterComponent
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { ColleagueListComponent } from '../shared/components/colleague-list/coll
     exports: [
         LikeHateComponent,
         ColleagueComponent,
-        ColleagueListComponent
+        ColleagueListComponent,
+        CounterComponent
     ]
 })
 export class SharedModule {

@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
 import {Colleague} from "../models/colleague";
+import {Subject} from "rxjs";
+import {LikeHate} from "../models/like-hate";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ColleagueService {
+
+  private subjectCompter = new Subject<LikeHate>();
   listColleagues: Colleague[] = [
     {
       pseudo: "Naufragé",
@@ -24,7 +28,15 @@ export class ColleagueService {
     ]
 
 getListCollegues(): Colleague[] {
-    return this.listColleagues;
+  return this.listColleagues;
 }
-  constructor() { }
+
+publierVote (likeHate:LikeHate) {
+this.subjectCompter.next(likeHate);
 }
+
+observerVote () {
+return this.subjectCompter.asObservable();
+  }
+}
+

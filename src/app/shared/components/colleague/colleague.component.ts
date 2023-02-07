@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Colleague} from "../../../models/colleague";
 import {LikeHate} from "../../../models/like-hate";
+import {ColleagueService} from "../../../providers/colleague.service";
 
 @Component({
   selector: 'tc-colleague',
@@ -17,13 +18,15 @@ export class ColleagueComponent {
   likeDisabled = false;
   hateDisabled = false;
 
+  constructor(private colleagueSRV :ColleagueService) {
+  }
   modifierScore (vote:LikeHate) {
       if (vote == LikeHate.LIKE) {
-        this.colleague.score += 100;
+        this.colleague.score += 50;
       } else {
-        this.colleague.score-=100;
+        this.colleague.score-=50;
       }
-
+      this.colleagueSRV.publierVote(vote)
       if(this.colleague.score > 999) {
         this.likeDisabled = true;
       } else {
@@ -35,10 +38,4 @@ export class ColleagueComponent {
       this.hateDisabled = false;
     }
   }
-
-
-
-
-
-
 }

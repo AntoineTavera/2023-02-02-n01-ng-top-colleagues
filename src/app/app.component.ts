@@ -9,4 +9,6 @@ import {Colleague} from "./models/colleague";
 export class AppComponent {
   title = 'top-colleagues';
 
+
+
 }
