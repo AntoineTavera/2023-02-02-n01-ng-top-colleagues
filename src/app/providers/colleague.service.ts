@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Colleague} from "../models/colleague";
 import {Observable, Subject} from "rxjs";
 import {LikeHate} from "../models/like-hate";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {Vote} from "../models/vote";
 
 @Injectable({

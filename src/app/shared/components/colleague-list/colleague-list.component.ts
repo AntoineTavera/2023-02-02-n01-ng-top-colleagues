@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {Colleague} from "../../../models/colleague";
 import {ColleagueService} from "../../../providers/colleague.service";
 

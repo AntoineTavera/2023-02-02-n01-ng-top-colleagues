@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ScorePipe implements PipeTransform {
 
-  transform(value: number, ...args: unknown[]): string {
+  transform(value: number): string {
     if (value>0) return '+' + value;
     if (value<0) return '' + value;
     return ''+value;
