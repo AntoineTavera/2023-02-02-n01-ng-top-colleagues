@@ -10,7 +10,7 @@ import {ColleagueService} from "../../../providers/colleague.service";
 export class ColleagueListComponent {
   listColleagues: Colleague[] = [];
 
-constructor(private colleagueSRV: ColleagueService) {
-  this.listColleagues = colleagueSRV.getListCollegues()
+  constructor(private colleagueSRV :ColleagueService) {
+    this.colleagueSRV.rechercherCollegues().subscribe(c => this.listColleagues = c);
 }
 }

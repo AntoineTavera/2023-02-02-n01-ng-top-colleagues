@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Colleague} from "../../../models/colleague";
 import {LikeHate} from "../../../models/like-hate";
 import {ColleagueService} from "../../../providers/colleague.service";
@@ -8,34 +8,36 @@ import {ColleagueService} from "../../../providers/colleague.service";
   templateUrl: './colleague.component.html',
   styleUrls: ['./colleague.component.scss']
 })
-export class ColleagueComponent {
-  @Input() colleague: Colleague = {
-    pseudo: "toto",
-    score: 100,
-    photo: "http://randomuser.me/api/portraits/men/81.jpg"
-  }
+export class ColleagueComponent implements OnInit{
+  @Input() colleague!: Colleague;
 
   likeDisabled = false;
   hateDisabled = false;
 
-  constructor(private colleagueSRV :ColleagueService) {
+
+constructor(private colleagueSRV: ColleagueService) {
+
+}
+activationBouton() {
+  this.likeDisabled = this.colleague.score > 999;
+  if(this.colleague.score < -999) {
+    this.hateDisabled = true;
+  } else {
+    this.hateDisabled = false;
   }
+}
   modifierScore (vote:LikeHate) {
-      if (vote == LikeHate.LIKE) {
-        this.colleague.score += 50;
-      } else {
-        this.colleague.score-=50;
-      }
-      this.colleagueSRV.publierVote(vote)
-      if(this.colleague.score > 999) {
-        this.likeDisabled = true;
-      } else {
-        this.likeDisabled = false;
-      }
-    if(this.colleague.score < -999) {
-      this.hateDisabled = true;
-    } else {
-      this.hateDisabled = false;
-    }
+      this.colleagueSRV.postData({colleague: this.colleague, vote: vote})
+        .subscribe(data => {
+        this.colleague.score = data.score;
+          this.colleagueSRV.publierVote(vote);
+          this.activationBouton();
+      })
   }
+
+  ngOnInit(): void {
+    this.activationBouton();
+  }
+
+
 }
