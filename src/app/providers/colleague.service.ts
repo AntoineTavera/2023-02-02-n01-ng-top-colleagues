@@ -4,6 +4,7 @@ import {Observable, Subject} from "rxjs";
 import {LikeHate} from "../models/like-hate";
 import {HttpClient} from "@angular/common/http";
 import {Vote} from "../models/vote";
+import {CollegueComplet} from "../models/collegue-complet";
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,8 @@ this.subjectCompter.next(likeHate);
 observerVote () {
 return this.subjectCompter.asObservable();
   }
+posterRequeteCollegue(collegueComplet:Partial<CollegueComplet>) {
+  return this.http.post<CollegueComplet>("https://dev.cleverapps.io/api/v2/colleagues", collegueComplet)
+}
 }
 

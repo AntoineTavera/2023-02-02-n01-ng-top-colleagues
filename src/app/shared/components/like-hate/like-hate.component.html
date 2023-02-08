@@ -1,4 +1,10 @@
-<div>
-  <button (click)="Like()" class="btn btn-primary m-1" [disabled]="like">J'aime</button>
-  <button (click)="Hate()" class="btn btn-danger m-1" [disabled]="hate">Je deteste</button>
+<div class="row">
+  <div class="col-6">
+    <button (click)="Like()" class="btn btn-primary" [disabled]="like">J'aime</button>
+  </div>
+  <div  class="col-6">
+    <button (click)="Hate()" class="btn btn-danger" [disabled]="hate">Je deteste</button>
+  </div>
+
+
 </div>

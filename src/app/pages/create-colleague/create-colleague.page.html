@@ -1,0 +1,46 @@
+<form #fStatus="ngForm">
+
+  <div>
+    Pseudo <input #pseudoStatus="ngModel" name="pseudo" type="text" required [(ngModel)]="collegueCreate.pseudo">
+    <span *ngIf="pseudoStatus.dirty && pseudoStatus.invalid">
+      Pseudo requis !
+    </span>
+    <span *ngIf="pseudoStatus.dirty && pseudoStatus.valid">
+      Le pseudo est bien renseigné !
+    </span>
+
+  </div>
+  <div>
+    Nom <input #nomStatus="ngModel" name="nom" type="text" required minlength="2" [(ngModel)]="collegueCreate.last">
+    <span *ngIf="nomStatus.dirty && nomStatus.invalid">
+      Le Nom doit contenir au moins 2 caractères !
+    </span>
+    <span *ngIf="nomStatus.dirty && nomStatus.valid">
+      Le Nom est valide !
+    </span>
+  </div>
+  <div>
+    Prenom <input #prenomStatus="ngModel" name="prenom" type="text" required minlength="2" [(ngModel)]="collegueCreate.first">
+    <span *ngIf="prenomStatus.dirty && prenomStatus.invalid">
+      Le Prénom doit contenir au moins 2 caractères !
+    </span>
+    <span *ngIf="prenomStatus.dirty && prenomStatus.valid">
+      Le Prénom est valide !
+    </span>
+  </div>
+  <div>
+    Photo <input #photoStatus="ngModel" name="photo" type="text" required  [(ngModel)]="collegueCreate.photo">
+    <span *ngIf="photoStatus.dirty && photoStatus.invalid">
+      Le lien de la photo est requis !
+    </span>
+    <span *ngIf="photoStatus.dirty && photoStatus.valid">
+      La photo est bien renseignée !
+    </span>
+  </div>
+  <div>
+    <button [disabled]="fStatus.invalid" (click)="creerCollegue()">Valider</button>
+    {{message}}
+  </div>
+</form>
+
+{{collegueCreate | json}}

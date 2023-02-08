@@ -1,7 +1,9 @@
-<div class="card p-1">
-  <img [src]="colleague.photo" alt="kk">
-  <p>{{colleague.pseudo | uppercase}}</p>
-  <p>{{colleague.score | score}}</p>
-
-<tc-like-hate (evtLikeHate)="modifierScore($event)" [like]="likeDisabled" [hate]="hateDisabled"></tc-like-hate>
+<div class="card" style="width: 18rem;">
+  <img [src]="colleague.photo" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title text-center">{{colleague.pseudo | uppercase}}</h5>
+    <p class="card-text text-center">{{colleague.score | score}}</p>
+    <tc-like-hate (evtLikeHate)="modifierScore($event)" [like]="likeDisabled" [hate]="hateDisabled"></tc-like-hate>
+  </div>
 </div>
+
