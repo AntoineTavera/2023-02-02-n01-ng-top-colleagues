@@ -4,4 +4,5 @@ export interface CollegueComplet {
   last:string;
   first:string;
   photo:string;
+  score:number;
 }

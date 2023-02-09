@@ -8,6 +8,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { ScorePipe } from './pipes/score.pipe';
 import { VotingHistoryComponent } from './components/voting-history/voting-history.component';
 import { CreateColleagueReactiveFormsComponent } from './components/create-colleague-reactive-forms/create-colleague-reactive-forms.component';
+import {RouterLink, RouterLinkActive} from "@angular/router";
 
 
 
@@ -22,15 +23,18 @@ import { CreateColleagueReactiveFormsComponent } from './components/create-colle
     CreateColleagueReactiveFormsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterLinkActive,
+    RouterLink
   ],
-    exports: [
-        LikeHateComponent,
-        ColleagueComponent,
-        ColleagueListComponent,
-        CounterComponent,
-        HttpClientModule
-    ]
+  exports: [
+    LikeHateComponent,
+    ColleagueComponent,
+    ColleagueListComponent,
+    CounterComponent,
+    HttpClientModule,
+    ScorePipe
+  ]
 })
 export class SharedModule {
 

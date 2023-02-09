@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {CollegueComplet} from "../../models/collegue-complet";
 import {ColleagueService} from "../../providers/colleague.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'tc-create-colleague',
@@ -9,13 +10,15 @@ import {ColleagueService} from "../../providers/colleague.service";
 })
 export class CreateColleaguePage {
 
-  constructor(private collegueSRV:ColleagueService) {
+  constructor(private collegueSRV:ColleagueService, private router:Router) {
   }
 
   collegueCreate: Partial<CollegueComplet> = {};
 
   creerCollegue() {
-    return this.collegueSRV.posterRequeteCollegue(this.collegueCreate).subscribe(()=> this.message = 'Le collègue a été crée');
+     this.collegueSRV.posterRequeteCollegue(this.collegueCreate).subscribe(()=> {
+       this.router.navigateByUrl("/colleague")
+     });
   }
   message:String ="";
 }
